@@ -1,0 +1,33 @@
+{
+  "name": "playbook-watermark",
+  "version": "1.0.0",
+  "description": "Enhance your designs effortlessly with the Watermark plugin on Playbook.com. Add watermarks to your images in one click, absolutely free. Perfect for designers seeking quick and easy image protection without any hidden costs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notashleel/playbook-watermark.git"
+  },
+  "keywords": [
+    "Playbook",
+    "watermark",
+    "ashey",
+    "asheyxd",
+    "notashleel",
+    "plugin",
+    "playbook-plugin"
+  ],
+  "author": "AsheyXD (Aumansh Kaushal)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notashleel/playbook-watermark/issues"
+  },
+  "homepage": "https://github.com/notashleel/playbook-watermark#readme",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0"
+  }
+}
