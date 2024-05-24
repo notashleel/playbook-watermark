@@ -2,7 +2,6 @@ require('dotenv').config()
 const fs = require('fs')
 const axios = require('axios')
 var http = require('http');
-var https = require('https');
 const canvas = require('canvas')
 
 const express = require('express')
@@ -70,7 +69,7 @@ app.post('/playbookapi', async (req, res) => {
 
 
 var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(80);
-httpsServer.listen(443);
+httpServer.listen(80, () => {
+  console.log('HTTP server running on port 80')
+});

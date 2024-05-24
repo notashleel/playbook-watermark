@@ -26,7 +26,9 @@
   },
   "homepage": "https://github.com/notashleel/playbook-watermark#readme",
   "dependencies": {
+    "axios": "^1.7.2",
     "canvas": "^2.11.2",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "node-fetch": "^2.7.0"
   }
