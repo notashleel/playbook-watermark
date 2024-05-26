@@ -1,112 +1,102 @@
-# Watermark Plugin for Playbook.com
+# Playbook API Plugin
 
-## Overview
-
-The Watermark plugin for Playbook.com is designed to help designers easily add watermarks to their images with a single click. This tool ensures that your creative work is protected and properly credited, all without any hidden charges or the need for credits.
+This project is an Express.js-based web server that handles image processing requests, specifically applying a watermark to an image. The server receives requests with image assets, determines the dominant color of the image, decides on a suitable watermark (black or white), applies the watermark, and uploads the processed image back.
 
 ## Features
 
-- **Easy to Use**: Add watermarks to images in one click.
-- **Free of Charge**: No credits or hidden costs.
-- **Supports Multiple Image Formats**: JPEG, PNG, WebP, and SVG.
+- Receives image assets via POST requests.
+- Determines the dominant color of an image.
+- Applies an appropriate watermark based on the image's dominant color.
+- Uploads the watermarked image to a specified URL.
 
 ## Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/watermark-plugin.git
-    cd watermark-plugin
+    ```sh
+    git clone https://github.com/notashleel/playbook-watermark
+    cd playbook-watermark
     ```
 
-2. Install dependencies:
-    ```bash
+2. Install the dependencies:
+    ```sh
     npm install
     ```
 
-3. Create a `.env` file in the root directory and add necessary environment variables:
-    ```env
-    # Example .env file content
-    PORT=3000
-    CALLBACK_URL=https://yourcallbackurl.com
-    ```
-
-4. Start the server:
-    ```bash
+3. Run index.js:
+    ```sh
     node index.js
     ```
 
 ## Usage
 
-### API Endpoints
+Start the server:
+```sh
+node index.js
+```
 
-#### GET /playbookapi
+The server will run on port 80 by default.
 
-This endpoint is used to verify the server is running.
+## Endpoints
 
-- **Response**: 
-  ```plaintext
-  Hello World! Use POST to trigger the plugin in development.
-  ```
+### GET /playbookapi
 
-#### POST /playbookapi
+- **Description:** Health check endpoint to ensure the server is running.
+- **Response:** `Hello World! Use POST to trigger the plugin in development.`
 
-This endpoint processes the watermarking of images.
+### POST /playbookapi
 
-- **Request Body**:
+- **Description:** Main endpoint to process images.
+- **Request Body:**
   ```json
   {
-    "pluginInvocationToken": "string",
-    "operationName": "string",
-    "callbackUrl": "string",
+    "pluginInvocationToken": "invocation-token",
+    "operationName": "operation-name",
+    "callbackUrl": "https://callback.url",
     "assets": [
       {
-        "url": "string",
-        "title": "string"
+        "url": "https://image.url",
+        "title": "Image Title"
       }
     ]
   }
   ```
 
-- **Response**: `200 OK` if the request is successfully received.
+- **Response:** Status 200 on success.
 
-- **Process**:
-  1. Extracts the image URL from the request.
-  2. Downloads the image and converts it to PNG format if necessary.
-  3. Applies a gray watermark to the image.
-  4. Uploads the watermarked image to the specified callback URL.
-  5. Sends a success status to the callback URL if the operation is successful, or a failure status if the image format is unsupported.
+## How It Works
 
-## Code Structure
+1. **Receive Request:** The server receives a POST request with image asset details.
+2. **Get Dominant Color:** The dominant color of the image is determined.
+3. **Determine Watermark:** Based on the dominant color, a suitable watermark (black or white) is chosen.
+4. **Apply Watermark:** The watermark is applied to the image using the `Watermark` class in `watermark.js`.
+5. **Upload Image:** The processed image is uploaded to the provided callback URL.
 
-- **index.js**: Main server file.
-- **/playbook**: Contains the watermark logic and assets.
-  - **gray.png**: The watermark image.
-  - **index.js**: Contains the `Watermark` class for applying the watermark.
+## Files
+
+### index.js
+
+Main server file that sets up the Express app and handles image processing.
+
+### watermark.js
+
+Contains the `Watermark` class responsible for applying the watermark to the image.
 
 ## Dependencies
 
-- `dotenv`
-- `express`
-- `axios`
-- `canvas`
-- `sharp`
-- `fs`
-- `http`
-- `https`
-- `path`
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+- `dotenv`: For environment variable management.
+- `fs`: For file system operations.
+- `axios`: For HTTP requests.
+- `canvas`: For image processing.
+- `express`: For setting up the web server.
+- `path`: For handling file paths.
+- `sharp`: For image conversion and manipulation.
+- `colorthief`: For extracting dominant colors from images.
+- `node-fetch`: For fetching images from URLs.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request for review.
+Contributions are welcome! Please open an issue or submit a pull request.
 
-## Support
+## Contact
 
-If you have any questions or issues, please open an issue in the GitHub repository.
-
----
-
-Happy watermarking with the Watermark plugin for Playbook.com!
+For questions or feedback, please contact [aumanshk@gmail.com](mailto:aumanshk@gmail.com).
