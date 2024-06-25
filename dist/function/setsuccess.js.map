@@ -1,0 +1,1 @@
+{"version":3,"file":"setsuccess.js","sourceRoot":"","sources":["../../src/function/setsuccess.ts"],"names":[],"mappings":";;;;;;;;;;;;;;AACA,4BAMC;AAPD,kDAAyB;AACzB,mBAA8B,qBAA6B,EAAE,WAAmB;;QAC5E,MAAM,eAAK,CAAC,IAAI,CAAC,WAAW,EAAE;YAC1B,qBAAqB;YACrB,WAAW,EAAE,WAAW;YACxB,QAAQ,EAAE,SAAS;SACtB,CAAC,CAAA;IACN,CAAC;CAAA"}

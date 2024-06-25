@@ -4,7 +4,7 @@
   "description": "Enhance your designs effortlessly with the Watermark plugin on Playbook.com. Add watermarks to your images in one click, absolutely free. Perfect for designers seeking quick and easy image protection without any hidden costs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,10 +30,14 @@
     "canvas": "^2.11.2",
     "colorthief": "^2.4.0",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "i": "^0.3.7",
     "node-fetch": "^2.7.0",
     "npm": "^10.8.0",
     "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21"
   }
 }
